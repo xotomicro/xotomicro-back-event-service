@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: xotomicro-back-event-service
+  name: xotomicro-back-event-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: xotomicro-back-event-service
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        io.kompose.service: xotomicro-back-event-service
+    spec:
+      containers:
+        - image: xotomicro-back-event-service
+          name: xotomicro-back-event-service
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8085
+          resources: {}
+      restartPolicy: Always
+status: {}
