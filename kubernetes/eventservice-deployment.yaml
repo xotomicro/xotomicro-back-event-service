@@ -21,6 +21,11 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8085
+          env:
+            - name: PROFILE
+              value: docker
+            - name: ENV
+              value: production
           resources: {}
       restartPolicy: Always
 status: {}
