@@ -17,5 +17,5 @@ spring:
   application:
     name: xotomicro-back-event-service
 
-elasticsearch:
+elasticsearch-master-hl:
   host: elasticsearch-master-hl:9200
