@@ -1,0 +1,28 @@
+version: '2.1'
+services:
+    ###################
+    ##    BACKEND    ##
+    ###################
+
+    xotomicro-back-event-service:
+        build:
+            context: .
+            dockerfile: docker/dockerfile.development
+        container_name: xotomicro-back-event-service-dev
+        image: xotomicro-back-event-service-dev
+        environment:
+            - SECRET_KEY=${SECRET_KEY}
+            - JVM_OPTS=-Xmx512m -Xms512m
+            - PROFILE=${PROFILE}
+            - ENV=${ENV}
+        ports:
+            - 8085:8085
+        healthcheck:
+            test: ['CMD', 'curl', '-f', 'http://localhost:8085/actuator/health']
+            interval: 30s
+            timeout: 1s
+            retries: 10
+        volumes:
+            - ./:/app
+        env_file:
+            - .env

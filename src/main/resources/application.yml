@@ -1,0 +1,22 @@
+server:
+  port: 8085
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9090/eureka
+  instance:
+    preferIpAddress: true
+
+kafka:
+  bootstrapServer: localhost:9092
+  consumerGroup: xotomicro-back-event-service
+  topics: product
+
+spring:
+  application:
+    name: xotomicro-back-event-service
+
+elasticsearch:
+  # elasticsearch-master-hl:
+  host: localhost:9200
